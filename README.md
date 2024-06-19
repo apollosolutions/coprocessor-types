@@ -1,6 +1,6 @@
 # Coprocessor Request/Response Type Definitions
 
-This repository provides examples of type definitions for the coprocessor request/response lifecycle in various programming languages, including TypeScript, C#, Java, Kotlin, Go, and Clojure.
+This repository provides examples of type definitions for the coprocessor request/response lifecycle in various programming languages, including TypeScript, C#, Java, Kotlin, Go, etc.
 
 **The code in this repository is experimental and has been provided for reference purposes only. Community feedback is welcome but this project may not be supported in the same way that repositories in the official [Apollo GraphQL GitHub organization](https://github.com/apollographql) are. If you need help you can file an issue on this repository, [contact Apollo](https://www.apollographql.com/contact-sales) to talk to an expert, or create a ticket directly in Apollo Studio.**
 
