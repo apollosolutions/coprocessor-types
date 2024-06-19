@@ -11,7 +11,7 @@ To use the provided type definitions, you need to copy the respective code snipp
 ### TypeScript / c\# / Java / Kotlin / Go
 
 ```bash
-# No installation required, just copy the code snippet into your project
+# No installation required, just copy the code snippet from the language folder into your project. Then use as the example provided.
 ```
 
 ## Usage
