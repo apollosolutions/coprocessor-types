@@ -16,8 +16,6 @@ To use the provided type definitions, you need to copy the respective code snipp
 
 ## Usage
 
-Provide detailed usage instructions here.
-
 ### TypeScript
 
 ```typescript
