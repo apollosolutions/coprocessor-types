@@ -19,26 +19,6 @@ To use the provided type definitions, you need to copy the respective code snipp
 ### TypeScript
 
 ```typescript
-const exampleRequest: CoprocessorRequest = {
-  version: 1,
-  stage: 'RouterRequest',
-  control: 'continue',
-  id: '1b19c05fdafc521016df33148ad63c1b',
-  headers: {
-    "content-type": ["application/json"]
-  },
-  body: {
-    query: "query GetActiveUser { me { name } }"
-  },
-  context: {
-    entries: {
-      "accepts-json": true
-    }
-  },
-  path: "/",
-  method: "POST"
-};
-
 const exampleResponse: CoprocessorResponse = {
   control: { break: 401 },
   body: {
@@ -57,24 +37,6 @@ const exampleResponse: CoprocessorResponse = {
 ### C\#
 
 ```csharp
-var exampleRequest = new CoprocessorRequest {
-    Version = 1,
-    Stage = Stage.RouterRequest,
-    Control = Control.Continue,
-    Id = "1b19c05fdafc521016df33148ad63c1b",
-    Headers = new Dictionary<string, string[]> {
-        { "content-type", new[] { "application/json" } }
-    },
-    Body = new { query = "query GetActiveUser { me { name } }" },
-    Context = new Context {
-        Entries = new Dictionary<string, object> {
-            { "accepts-json", true }
-        }
-    },
-    Path = "/",
-    Method = "POST"
-};
-
 var exampleResponse = new CoprocessorResponse {
     Control = new Control.BreakControl(401),
     Body = new {
@@ -93,17 +55,6 @@ var exampleResponse = new CoprocessorResponse {
 ### Java
 
 ```java
-CoprocessorRequest exampleRequest = new CoprocessorRequest();
-exampleRequest.setVersion(1);
-exampleRequest.setStage(Stage.RouterRequest);
-exampleRequest.setControl(Control.CONTINUE);
-exampleRequest.setId("1b19c05fdafc521016df33148ad63c1b");
-exampleRequest.setHeaders(Map.of("content-type", new String[] { "application/json" }));
-exampleRequest.setBody(Map.of("query", "query GetActiveUser { me { name } }"));
-exampleRequest.setContext(new Context(Map.of("accepts-json", true)));
-exampleRequest.setPath("/");
-exampleRequest.setMethod("POST");
-
 CoprocessorResponse exampleResponse = new CoprocessorResponse();
 exampleResponse.setControl(new Control.BreakControl(401));
 exampleResponse.setBody(Map.of("errors", new Object[] {
@@ -114,18 +65,6 @@ exampleResponse.setBody(Map.of("errors", new Object[] {
 ### Kotlin
 
 ```kotlin
-val exampleRequest = CoprocessorRequest(
-    version = 1,
-    stage = Stage.RouterRequest,
-    control = Control.Continue,
-    id = "1b19c05fdafc521016df33148ad63c1b",
-    headers = mapOf("content-type" to arrayOf("application/json")),
-    body = mapOf("query" to "query GetActiveUser { me { name } }"),
-    context = Context(mapOf("accepts-json" to true)),
-    path = "/",
-    method = "POST"
-)
-
 val exampleResponse = CoprocessorResponse(
     control = Control.BreakControl(401),
     body = mapOf("errors" to listOf(mapOf("message" to "Not authenticated.", "extensions" to mapOf("code" to "ERR_UNAUTHENTICATED"))))
@@ -135,26 +74,6 @@ val exampleResponse = CoprocessorResponse(
 ### Go
 
 ```go
-exampleRequest := CoprocessorRequest{
-    Version: 1,
-    Stage: RouterRequest,
-    Control: ContinueControl{},
-    ID: "1b19c05fdafc521016df33148ad63c1b",
-    Headers: map[string][]string{
-        "content-type": {"application/json"},
-    },
-    Body: map[string]interface{}{
-        "query": "query GetActiveUser { me { name } }",
-    },
-    Context: Context{
-        Entries: map[string]interface{}{
-            "accepts-json": true,
-        },
-    },
-    Path:   "/",
-    Method: "POST",
-}
-
 exampleResponse := CoprocessorResponse{
     Control: ControlResponse{
         Control: BreakControl{Break: 401},
