@@ -1,7 +1,7 @@
 interface CoprocessorRequest {
   version: number;
   stage: Stage;
-  control: Control;
+  control: "continue";
   id: string;
   headers?: Record<string, string[]>;
   body?: string | object;
@@ -15,11 +15,8 @@ interface CoprocessorRequest {
   hasNext?: boolean;
 }
 
-interface CoprocessorResponse {
-  control: ControlResponse;
-  body?: string | object;
-  headers?: Record<string, string[]>;
-  context?: Context;
+interface CoprocessorResponse extends CoprocessorRequest {
+  control: Control;
 }
 
 type Stage = 
@@ -35,8 +32,6 @@ type Control = 'continue' | BreakControl;
 interface BreakControl {
   break: number;
 }
-
-type ControlResponse = 'continue' | BreakControl;
 
 interface Context {
   entries: Record<string, any>;
