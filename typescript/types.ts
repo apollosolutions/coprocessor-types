@@ -1,7 +1,7 @@
 interface CoprocessorRequest {
   version: number;
   stage: Stage;
-  control: "continue";
+  control: 'continue';
   id: string;
   headers?: Record<string, string[]>;
   body?: string | object;
