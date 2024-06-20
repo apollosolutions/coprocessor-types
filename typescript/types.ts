@@ -1,11 +1,11 @@
 interface CoprocessorRequest {
   version: number;
-  stage: Stage;
+  stage: RouterStage;
   control: 'continue';
   id: string;
   headers?: Record<string, string[]>;
   body?: string | object;
-  context?: Context;
+  context?: RouterContext;
   sdl?: string;
   path?: string;
   method?: string;
@@ -16,24 +16,25 @@ interface CoprocessorRequest {
 }
 
 interface CoprocessorResponse extends CoprocessorRequest {
-  control: Control;
+  control: CoprocessorControl;
 }
 
-type Stage = 
-  | 'RouterRequest'
-  | 'RouterResponse'
-  | 'SupergraphRequest'
-  | 'SupergraphResponse'
-  | 'SubgraphRequest'
-  | 'SubgraphResponse';
+enum RouterStage {
+  RouterRequest = 'RouterRequest',
+  RouterResponse = 'RouterResponse',
+  SupergraphRequest = 'SupergraphRequest',
+  SupergraphResponse = 'SupergraphResponse',
+  SubgraphRequest = 'SubgraphRequest',
+  SubgraphResponse = 'SubgraphResponse'
+}
 
-type Control = 'continue' | BreakControl;
+type RouterControl = 'continue' | RouterControlBreak;
 
-interface BreakControl {
+interface RouterControlBreak {
   break: number;
 }
 
-interface Context {
+interface RouterContext {
   entries: Record<string, any>;
 }
 
