@@ -1,20 +1,20 @@
 package main
 
 type CoprocessorRequest struct {
-	Version     int                 `json:"version"`
-	Stage       Stage               `json:"stage"`
-	Control     Control             `json:"control"`
-	ID          string              `json:"id"`
-	Headers     map[string][]string `json:"headers,omitempty"`
-	Body        interface{}         `json:"body,omitempty"`
-	Context     Context             `json:"context,omitempty"`
-	SDL         string              `json:"sdl,omitempty"`
-	Path        string              `json:"path,omitempty"`
-	Method      string              `json:"method,omitempty"`
-	ServiceName string              `json:"serviceName,omitempty"`
-	StatusCode  int                 `json:"statusCode,omitempty"`
-	URI         string              `json:"uri,omitempty"`
-	HasNext     bool                `json:"hasNext,omitempty"`
+	Version     int                  `json:"version"`
+	Stage       Stage                `json:"stage"`
+	Control     Control              `json:"control"`
+	ID          string               `json:"id"`
+	Headers     *map[string][]string `json:"headers,omitempty"`
+	Body        *interface{}         `json:"body,omitempty"` // Body can be either an object containing the body of the request, or a string depending on the stage.
+	Context     *Context             `json:"context,omitempty"`
+	SDL         string               `json:"sdl,omitempty"`
+	Path        string               `json:"path,omitempty"`
+	Method      string               `json:"method,omitempty"`
+	ServiceName string               `json:"serviceName,omitempty"`
+	URI         string               `json:"uri,omitempty"`
+	StatusCode  *int                 `json:"statusCode,omitempty"`
+	HasNext     *bool                `json:"hasNext,omitempty"`
 }
 
 type CoprocessorResponse struct {
