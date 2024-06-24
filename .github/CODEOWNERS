@@ -4,5 +4,5 @@
 
 # Example for assigning to the Solutions Factory 
 # @solutions-factory
-
-* @solutions-architects @solutions-factory
+@solutions-factory
+@solutions-architects
